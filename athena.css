@@ -1,0 +1,12 @@
+body{
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.contents{
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.label{
+  vertical-align: middle;
+  margin-right: auto;
+}
