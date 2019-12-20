@@ -3,7 +3,7 @@ session_start();
 
 //DBに接続
 try{
-  $dbh = new PDO('mysql:host=localhost;dbname=borads', 'yuhei','yuhei');
+  $dbh = new PDO('mysql:host=localhost;dbname=boards_ve2', 'ami','ami');
   // DBに情報を挿入
   $statement = $dbh->prepare('INSERT INTO members SET name=?, email=?, password=?, created=NOW()');
   $statement->execute(array($_POST['name'], $_POST['email'], $_POST['password']));
