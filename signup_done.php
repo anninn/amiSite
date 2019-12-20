@@ -1,13 +1,15 @@
 <?php
 session_start();
+
+//DBに接続
 try{
-  $dbh = new PDO('mysql:host=localhost;dbname = boards', 'ami','ami');
-  //新規登録情報
-  $statement = $dbh->prepare('INSERT INTO signupinfo SET name=?,email=?,password =?, created=NOW()');
-  $statement->execute(array($_POST['name'],$_POST['email'] ,$_POST['password']));
-  echo '新規登録出来ました';
+  $dbh = new PDO('mysql:host=localhost;dbname=borads', 'yuhei','yuhei');
+  // DBに情報を挿入
+  $statement = $dbh->prepare('INSERT INTO members SET name=?, email=?, password=?, created=NOW()');
+  $statement->execute(array($_POST['name'], $_POST['email'], $_POST['password']));
+   echo '情報が登録されました。';
 }catch(PDOException $e){
-  echo '新規登録できませんでした'.$e->getMessage();
+  echo 'DB接続エラー'.$e->getMessage();
 }
 ?>
 
