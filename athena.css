@@ -10,3 +10,82 @@ body{
   vertical-align: middle;
   margin-right: auto;
 }
+.SEND{
+  margin: 40px auto;
+  max-width: auto;
+}
+
+.box1 {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    font-weight: bold;
+    border: solid 3px #000000;
+}
+.box1 p {
+    margin: 0; 
+    padding: 0;
+}
+
+
+/*掲示板ゾーン*/
+
+article{
+
+  margin-top: auto;
+  padding: 20px;
+  border-radius: 20px;
+  background: #ffffff;
+}
+article.reply{
+   position: relative;
+   margin-top: 15px;
+   margin-left: 30px;
+}
+
+article.reply::before{
+  position: absolute;
+  top: auto;
+  left: auto;
+  display: block;
+  content: "";
+  border-top: none;
+  border-left: 7px solid #808080;
+  border-right: 7px solid #808080;
+  border-bottom: 7px solid #fff;
+}
+
+  .info{
+    margin-bottom: 10px;  
+  }
+  .info h2{
+    display: inline-block;
+    margin-right: 10px;
+    color: gainsboro;
+    line-height: normal;
+    font-size: medium;
+  }
+
+  .info time{
+    color: gainsboro;
+    font-size: medium;
+    line-height: normal;
+  }
+
+
+  body{
+    padding: 30px;
+  }
+
+  input[type="text"]{
+    width: auto;
+  }
+textarea{
+  width: auto;
+  max-width: 100%;
+  height: auto;
+ }
+
+
+
+
+
