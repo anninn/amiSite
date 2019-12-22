@@ -1,8 +1,8 @@
 <?php
-/*
+
 //define( 'FILENAME', ' message.txt' );
 require('config.php');
-
+/*
 //タイム
 date_default_timezone_set('Asia/Tokyo');
 

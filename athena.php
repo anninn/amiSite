@@ -1,7 +1,25 @@
-<?php
+<!-- <?php -->
 session_start();
-//define( 'FILENAME', ' message.txt' );
+//DBに接続する
+try{
+  $dbh = new PDO('mysql:host=localhost;dbname=boards_ve2', 'ami','ami');
 
+  //DB情報入力
+  $statement = $dbh->prepare('INSERT INTO message SET name=?, view_name=?, message=?, post_data=NOW()');
+  $statement->execute(array($_POST['view_name'], $_POST['message'], $_POST['ppost_data']));
+  $sql = 'SELECT * FROM message';
+  $data = $dbh->query($sql);
+
+  if (!empty($data)){
+
+    foreach($data as $value){
+      
+    }
+  }
+
+}catch(PDOException $e){
+  echo $e->getMessage();
+}
 
 
 
@@ -40,7 +58,7 @@ if ( !empty ($_POST['btn_submit']) ) {
  }
 
  if (empty ($error_message ) ){
-//  var_dump($_POST)  ;
+ var_dump($_POST)  ;
 /*  
 if( $file_handle = fopen( FILENAME , "a")) {
 
@@ -83,18 +101,18 @@ if($result = $mysqli->query("SELECT Name From message LIMIT 10")){
 
 $mysqli->close();
 */
-  $error_message [] = '書き込みに失敗しました。　エラー番号'. $mysqli->connect_errno.' : '. $mysqli ->connect_error;
-} else {
+  //$error_message [] = '書き込みに失敗しました。　エラー番号'. $mysqli->connect_errno.' : '. $mysqli ->connect_error;
+//} else {
 
   //データ処理
 
 //文字コード
-  $mysqli ->set_charset('utf8');
-//かきこみ
-$now_date = date("Y-m-d H:i:s");
+  // $mysqli ->set_charset('utf8');
+// //かきこみ
+// $now_date = date("Y-m-d H:i:s");
 
 //登録する
-$sql = "SELECT* FROM comment WHERE id = $message_id"
+// $sql = "SELECT* FROM comment WHERE id = $message_id"
 //$sql = "INSERT INTO message (view_name, message, post_date) VALUES ( '$clean[view_name]', '$clean[message]' , '$now_date')";
 
 //データ登録
@@ -157,7 +175,7 @@ if( $mysqli->connect_errno ) {
 
 
 
-?>
+// ?>
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -208,7 +226,7 @@ if( $mysqli->connect_errno ) {
     <?php if( !empty ($message_array ) ) { ?>
     <?php foreach ( $message_array as $value ) { ?>
     <!--<section class="SEND">
-      <h2>一覧</h2>
+      <h2>一覧</h2> 
       <p>お言葉はまだありません</p>-->
     <article>
       <div class ="info">
@@ -227,6 +245,4 @@ if( $mysqli->connect_errno ) {
 
   </body>
 
-
-
-</html>
+</html> 
